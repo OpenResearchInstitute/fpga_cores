@@ -32,6 +32,7 @@ Code is divided in synthesizable, simulation helpers and testbenches.
     eliminates data hazards, allowing reads before data makes in and out of the
     actual memory element
 * Misc
+  * AXI Embiggener: custom adapatation layer for a 32 bit encoder to a 128 bit DAC FIFO
   * Exponential Golomb encoder
 
 ## Simulation helpers

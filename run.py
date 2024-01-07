@@ -122,6 +122,7 @@ def addTests(cli, seed):
     addAxiWidthConverterTests(
         cli.library("tb").entity("axi_stream_width_converter_tb"), seed
     )
+    addAxiEmbiggenerTests(cli.library("tb").entity("axi_embiggener_tb"), seed)
     addAxiArbiterTests(cli.library("tb").entity("axi_stream_arbiter_tb"), seed)
 
     # Add seed to other testbenches
@@ -396,6 +397,21 @@ def addAxiWidthConverterTests(entity, seed):
                     seed=seed,
                 ),
             )
+
+
+def addAxiEmbiggenerTests(entity, seed):
+    # following example from addAxiWidthConverterTests, but only one case applies
+    input_data_width = 32
+    output_data_width = 128
+    entity.add_config(
+        name=f"input_data_width={input_data_width},"
+        + f"output_data_width={output_data_width}",
+        generics=dict(
+            INPUT_DATA_WIDTH=input_data_width,
+            OUTPUT_DATA_WIDTH=output_data_width,
+            seed=seed,
+        ),
+    )
 
 
 def addAxiArbiterTests(entity, seed):
